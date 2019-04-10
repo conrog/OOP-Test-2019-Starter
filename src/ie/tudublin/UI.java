@@ -1,3 +1,8 @@
+//OOP Year 2 Sem 2 Lab Test
+//Student Name: Conor Rogers
+//Student Number: C17730535
+//Date: 10/4/2019
+
 package ie.tudublin;
 
 import java.util.ArrayList;
@@ -8,7 +13,7 @@ import processing.data.TableRow;
 
 public class UI extends PApplet
 {	
-	ArrayList<Colour> colours = new ArrayList<Colour>();
+	public ArrayList<Colour> colours = new ArrayList<Colour>();
 
 	public void loadColours()
     {
@@ -26,6 +31,24 @@ public class UI extends PApplet
 		{
 			println(c.toString());
 		}
+	}
+
+	public Colour findColor(int value)
+	{
+		int index=0;
+
+		for(int i = 0; i < colours.size(); i++)
+		{
+			Colour c = colours.get(i);
+
+			if( c.value == value )
+			{
+
+				index = i;
+			}
+		}
+
+		return colours.get(index);
 	}
 
 	public void separate(int value)
@@ -51,9 +74,12 @@ public class UI extends PApplet
 	{
 		loadColours();
 		printColours();
+
+		print( findColor(1) ); //Returns brown
 	}
 	
 	public void draw()
-	{			
+	{		
+		
 	}
 }
