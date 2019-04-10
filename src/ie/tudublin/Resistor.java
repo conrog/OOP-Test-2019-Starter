@@ -1,5 +1,7 @@
 package ie.tudublin;
 
+import processing.data.TableRow;
+
 public class Resistor
 {
     public int value;
@@ -16,8 +18,15 @@ public class Resistor
         ones = value - ((hundreds * 100)  + (tens * 10));
     }
 
+    public Resistor(TableRow row)
+    {
+        //Couldn't get working
+        ///this.value = row.getInt();
+    }
+
     public String toString()
     {
         return  hundreds + "," + tens + "," + ones;
     }
+
 }

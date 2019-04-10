@@ -14,8 +14,27 @@ import processing.data.TableRow;
 public class UI extends PApplet
 {	
 	public ArrayList<Colour> colours = new ArrayList<Colour>();
+	public ArrayList<Resistor> resistors = new ArrayList<Resistor>();
 
 	Resistor r = new Resistor(123);
+
+	public void loadResistors()
+	{
+		Table table = loadTable("resistors.csv");
+        for( TableRow row : table.rows() )
+        {
+            Resistor r = new Resistor(row);
+			resistors.add(r);
+		}
+	}
+
+	public void printValues()
+	{
+		for(Resistor r: resistors)
+		{
+			println(r.toString());
+		}
+	}
 
 	public void loadColours()
     {
@@ -79,10 +98,28 @@ public class UI extends PApplet
 
 		println( findColor(1) ); //Returns brown
 		println(r.toString()); //Splits 123 into 1 2 3
+
+		//Was unable to read from file.
+		resistors.add(new Resistor(618));
+		resistors.add(new Resistor(27));
+		resistors.add(new Resistor(195));
+		resistors.add(new Resistor(93));
+
+		printValues();
+	}
+	
+
+	public void render()
+    {
+			noFill();
+			rect(150,150,200,200);
+			
+			stroke( colours.get(0).r, colours.get(0).g, colours.get(0).b);
+			line(200,150,200,350);
 	}
 	
 	public void draw()
 	{		
-		
+		render();
 	}
 }
