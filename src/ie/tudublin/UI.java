@@ -15,6 +15,8 @@ public class UI extends PApplet
 {	
 	public ArrayList<Colour> colours = new ArrayList<Colour>();
 
+	Resistor r = new Resistor(123);
+
 	public void loadColours()
     {
         Table table = loadTable("colours.csv", "header");
@@ -75,7 +77,8 @@ public class UI extends PApplet
 		loadColours();
 		printColours();
 
-		print( findColor(1) ); //Returns brown
+		println( findColor(1) ); //Returns brown
+		println(r.toString()); //Splits 123 into 1 2 3
 	}
 	
 	public void draw()
